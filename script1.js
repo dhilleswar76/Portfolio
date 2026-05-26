@@ -23,7 +23,9 @@ window.addEventListener('scroll', () => {
     });
 
     // Back to top button
-    backToTop.classList.toggle('visible', window.scrollY > 400);
+    if (backToTop) {
+        backToTop.classList.toggle('visible', window.scrollY > 400);
+    }
 
     // Trigger reveals
     revealOnScroll();
@@ -103,6 +105,16 @@ function revealOnScroll() {
 }
 revealOnScroll(); // run on load too
 
+window.addEventListener('load', () => {
+    revealOnScroll();
+    animateBarsOnce();
+});
+
+window.addEventListener('hashchange', () => {
+    revealOnScroll();
+    animateBarsOnce();
+});
+
 /* ---- SKILL BARS ANIMATION ---- */
 let barsAnimated = false;
 function animateBarsOnce() {
@@ -154,3 +166,24 @@ navToggle.addEventListener('click', () => {
         spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
     }
 });
+
+/* ---- CERTIFICATE HELPERS ---- */
+/**
+ * Update a certificate link in the certifications list.
+ * certIndex: 0-based index of the certificate card in the DOM
+ * url: the URL to set for the certificate (string)
+ * Returns true if updated, false otherwise.
+ */
+function updateCertificateLink(certIndex, url) {
+    const links = document.querySelectorAll('.cert-link');
+    const link = links[certIndex];
+    if (!link) return false;
+    link.href = url;
+    link.dataset.placeholder = 'false';
+    link.textContent = 'View certificate';
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noreferrer noopener');
+    return true;
+}
+
+window.updateCertificateLink = updateCertificateLink;
