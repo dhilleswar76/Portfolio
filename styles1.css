@@ -115,6 +115,7 @@ ul { list-style: none; }
     z-index: 1000;
     height: var(--nav-h);
     background: rgba(10,10,15,.85);
+    -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
     transition: var(--transition);
@@ -470,27 +471,13 @@ ul { list-style: none; }
     line-height: 1.2;
     padding-right: 12px;
 }
-.project-demo-btn {
-    flex: 0 0 auto;
-    align-self: flex-end;
-    padding: 7px 12px;
-    border-radius: 999px;
-    background: rgba(10,10,15,.78);
-    border: 1px solid rgba(255,255,255,.18);
-    color: #fff;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .4px;
-    backdrop-filter: blur(10px);
-}
-.project-demo-btn:hover { border-color: var(--accent-2); color: var(--accent-2); }
 .project-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    display: flex;
+    justify-content: center;
     padding: 0 18px 18px;
-    align-items: start;
 }
+.project-actions-single { padding-top: 0; }
+.project-view-btn { width: 100%; justify-content: center; }
 .project-details { width: 100%; }
 .project-details summary {
     list-style: none;
@@ -505,6 +492,81 @@ ul { list-style: none; }
     line-height: 1.65;
 }
 .project-repo-btn { justify-content: center; }
+
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.project-modal.open { display: flex; }
+.project-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 4, 10, .72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+.project-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: min(720px, 100%);
+    max-height: min(88vh, 820px);
+    overflow: auto;
+    background: linear-gradient(180deg, rgba(22,22,31,.98), rgba(14,14,22,.98));
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    padding: 28px;
+}
+.project-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.project-modal-close:hover { border-color: var(--accent-1); color: var(--accent-1); }
+.project-modal-label { margin-bottom: 8px; }
+.project-modal-title {
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.project-modal-description {
+    color: var(--text-secondary);
+    margin-bottom: 22px;
+}
+.project-modal-block {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.project-modal-block h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.project-modal-block p { color: var(--text-secondary); }
+.project-modal-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.project-modal-link { flex: 1 1 180px; justify-content: center; }
+.modal-open { overflow: hidden; }
 
 /* ---------- CERTIFICATIONS ---------- */
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
@@ -692,6 +754,7 @@ footer {
         position: fixed;
         top: var(--nav-h); left: 0; right: 0;
         background: rgba(10,10,15,.97);
+        -webkit-backdrop-filter: blur(14px);
         backdrop-filter: blur(14px);
         border-bottom: 1px solid var(--border);
         flex-direction: column;
@@ -714,4 +777,7 @@ footer {
     .hero-btns { flex-direction: column; align-items: center; }
     .about-info-grid { grid-template-columns: 1fr; }
     .workshop-card { flex-direction: column; }
+    .project-modal { padding: 16px; }
+    .project-modal-panel { padding: 22px 18px; }
+    .project-modal-links { flex-direction: column; }
 }

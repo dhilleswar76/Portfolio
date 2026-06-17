@@ -154,6 +154,84 @@ if (form) {
     });
 }
 
+/* ---- PROJECT VIEWER ---- */
+const projectModal = document.getElementById('project-modal');
+const projectModalTitle = document.getElementById('project-modal-title');
+const projectModalDescription = document.getElementById('project-modal-description');
+const projectModalExplanation = document.getElementById('project-modal-explanation');
+const projectModalDemo = document.getElementById('project-modal-demo');
+const projectModalRepo = document.getElementById('project-modal-repo');
+
+const projectData = {
+    skillsync: {
+        title: 'SkillSync',
+        description: 'Full-stack learning platform for structured course management and coding practice.',
+        explanation: 'SkillSync is a full-stack learning platform that combines course management, interactive coding practice, quizzes, progress tracking, and certificate generation in one web application. It offers structured learning across multiple tech domains, a responsive React frontend, a Node.js and MongoDB backend, secure authentication, role-based access control, and downloadable PDF certificates for completed courses.',
+        demoUrl: '#',
+        repoUrl: '#'
+    },
+    'task-manager': {
+        title: 'Task Manager',
+        description: 'Productivity app for organizing daily work, priorities, and progress.',
+        explanation: 'A productivity app focused on organizing daily work, priorities, and progress with an intuitive workflow.',
+        demoUrl: '#',
+        repoUrl: '#'
+    },
+    'ecommerce-ui': {
+        title: 'E-Commerce UI',
+        description: 'Responsive storefront layout with product cards and conversion-focused sections.',
+        explanation: 'A responsive storefront layout with product cards, clean navigation, and conversion-focused content blocks.',
+        demoUrl: '#',
+        repoUrl: '#'
+    }
+};
+
+const projectButtons = document.querySelectorAll('.project-view-btn');
+const closeProjectModalButtons = document.querySelectorAll('[data-close-project-modal]');
+
+function openProjectModal(projectKey) {
+    const project = projectData[projectKey];
+    if (!project || !projectModal) return;
+
+    projectModalTitle.textContent = project.title;
+    projectModalDescription.textContent = project.description;
+    projectModalExplanation.textContent = project.explanation;
+    projectModalDemo.href = project.demoUrl;
+    projectModalRepo.href = project.repoUrl;
+
+    projectModal.classList.add('open');
+    projectModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+}
+
+function closeProjectModal() {
+    if (!projectModal) return;
+
+    projectModal.classList.remove('open');
+    projectModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+}
+
+projectButtons.forEach(button => {
+    button.addEventListener('click', () => openProjectModal(button.dataset.project));
+});
+
+closeProjectModalButtons.forEach(button => {
+    button.addEventListener('click', closeProjectModal);
+});
+
+window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeProjectModal();
+});
+
+if (projectModal) {
+    projectModal.addEventListener('click', event => {
+        if (event.target === projectModal || event.target.hasAttribute('data-close-project-modal')) {
+            closeProjectModal();
+        }
+    });
+}
+
 /* ---- NAV TOGGLE ANIMATION ---- */
 navToggle.addEventListener('click', () => {
     const spans = navToggle.querySelectorAll('span');

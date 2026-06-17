@@ -53,13 +53,13 @@
 				<a href="#contact" class="btn btn-outline">Contact Me</a>
 			</div>
 			<div class="hero-socials">
-				<a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-				<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-				<a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+				<a href="https://github.com/dhilleswar76" aria-label="GitHub"><i class="fab fa-github"></i></a>
+				<a href="https://www.linkedin.com/in/dhilleswara-rao-malla/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+				<a href="mailto:dilleswararaomalla410@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
 			</div>
 		</div>
 		<div class="hero-scroll">
-			<a href="#about"><i class="fas fa-chevron-down"></i></a>
+			<a href="#about" aria-label="Scroll to About section" title="Scroll to About section"><i class="fas fa-chevron-down"></i></a>
 		</div>
 	</section>
 
@@ -194,19 +194,19 @@
 			<div class="skill-bars reveal">
 				<div class="skill-bar-item">
 					<div class="skill-bar-label"><span>Java</span><span>85%</span></div>
-					<div class="bar-track"><div class="bar-fill" data-width="85" style="width:85%;"></div></div>
+					<div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
 				</div>
 				<div class="skill-bar-item">
 					<div class="skill-bar-label"><span>Python</span><span>75%</span></div>
-					<div class="bar-track"><div class="bar-fill" data-width="75" style="width:75%;"></div></div>
+					<div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
 				</div>
 				<div class="skill-bar-item">
 					<div class="skill-bar-label"><span>Web Development</span><span>85%</span></div>
-					<div class="bar-track"><div class="bar-fill" data-width="85" style="width:85%;"></div></div>
+					<div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
 				</div>
 				<div class="skill-bar-item">
 					<div class="skill-bar-label"><span>CS Fundamentals</span><span>80%</span></div>
-					<div class="bar-track"><div class="bar-fill" data-width="80" style="width:80%;"></div></div>
+					<div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
 				</div>
 			</div>
 		</div>
@@ -252,15 +252,10 @@
 						<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Developer workspace for student dashboard project">
 						<div class="project-media-overlay">
 							<h3>SkillSync</h3>
-							<a class="project-demo-btn" href="#" target="_blank" rel="noreferrer">Demo</a>
 						</div>
 					</div>
-					<div class="project-actions">
-						<details class="project-details">
-							<summary class="btn btn-outline">Explanation</summary>
-							<p class="project-details-text">SkillSync is a full-stack learning platform that combines course management, interactive coding practice, quizzes, progress tracking, and certificate generation in one web application. It offers structured learning across multiple tech domains, a responsive React frontend, a Node.js and MongoDB backend, secure authentication, role-based access control, and downloadable PDF certificates for completed courses.</p>
-						</details>
-						<a class="btn btn-primary project-repo-btn" href="#" target="_blank" rel="noreferrer">Git Repo</a>
+					<div class="project-actions project-actions-single">
+						<button type="button" class="btn btn-primary project-view-btn" data-project="skillsync">View Project</button>
 					</div>
 				</article>
 
@@ -269,15 +264,10 @@
 						<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Modern app interface for task manager project">
 						<div class="project-media-overlay">
 							<h3>Task Manager</h3>
-							<a class="project-demo-btn" href="#" target="_blank" rel="noreferrer">Demo</a>
 						</div>
 					</div>
-					<div class="project-actions">
-						<details class="project-details">
-							<summary class="btn btn-outline">Explanation</summary>
-							<p class="project-details-text">A productivity app focused on organizing daily work, priorities, and progress with an intuitive workflow.</p>
-						</details>
-						<a class="btn btn-primary project-repo-btn" href="#" target="_blank" rel="noreferrer">Git Repo</a>
+					<div class="project-actions project-actions-single">
+						<button type="button" class="btn btn-primary project-view-btn" data-project="task-manager">View Project</button>
 					</div>
 				</article>
 
@@ -286,20 +276,33 @@
 						<img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1200&q=80" alt="E-commerce style interface for project showcase">
 						<div class="project-media-overlay">
 							<h3>E-Commerce UI</h3>
-							<a class="project-demo-btn" href="#" target="_blank" rel="noreferrer">Demo</a>
 						</div>
 					</div>
-					<div class="project-actions">
-						<details class="project-details">
-							<summary class="btn btn-outline">Explanation</summary>
-							<p class="project-details-text">A responsive storefront layout with product cards, clean navigation, and conversion-focused content blocks.</p>
-						</details>
-						<a class="btn btn-primary project-repo-btn" href="#" target="_blank" rel="noreferrer">Git Repo</a>
+					<div class="project-actions project-actions-single">
+						<button type="button" class="btn btn-primary project-view-btn" data-project="ecommerce-ui">View Project</button>
 					</div>
 				</article>
 			</div>
 		</div>
 	</section>
+
+	<div class="project-modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+		<div class="project-modal-backdrop" data-close-project-modal></div>
+		<div class="project-modal-panel" role="document">
+			<button type="button" class="project-modal-close" aria-label="Close project view" data-close-project-modal>&times;</button>
+			<p class="section-label project-modal-label">Project View</p>
+			<h2 class="project-modal-title" id="project-modal-title"></h2>
+			<p class="project-modal-description" id="project-modal-description"></p>
+			<div class="project-modal-block">
+				<h3>Explanation</h3>
+				<p id="project-modal-explanation"></p>
+			</div>
+			<div class="project-modal-links">
+				<a class="btn btn-outline project-modal-link" id="project-modal-demo" href="#" target="_blank" rel="noreferrer noopener">Open Demo</a>
+				<a class="btn btn-primary project-modal-link" id="project-modal-repo" href="#" target="_blank" rel="noreferrer noopener">Open Git Repo</a>
+			</div>
+		</div>
+	</div>
     
 		<!-- ===== CERTIFICATIONS ===== -->
 		<section id="certifications" class="section section-alt">
