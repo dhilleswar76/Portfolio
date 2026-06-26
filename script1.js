@@ -22,11 +22,6 @@ window.addEventListener('scroll', () => {
         a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
 
-    // Back to top button
-    if (backToTop) {
-        backToTop.classList.toggle('visible', window.scrollY > 400);
-    }
-
     // Trigger reveals
     revealOnScroll();
 
@@ -46,20 +41,6 @@ navToggle.addEventListener('click', () => {
 navLinks.forEach(link => {
     link.addEventListener('click', () => navbar.classList.remove('open'));
 });
-
-/* ---- SMOOTH SCROLL for all anchor links ---- */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-/* ---- BACK TO TOP ---- */
-const backToTop = document.getElementById('back-to-top');
 
 /* ---- TYPEWRITER EFFECT ---- */
 const roles = [
@@ -231,37 +212,3 @@ if (projectModal) {
         }
     });
 }
-
-/* ---- NAV TOGGLE ANIMATION ---- */
-navToggle.addEventListener('click', () => {
-    const spans = navToggle.querySelectorAll('span');
-    const isOpen = navbar.classList.contains('open');
-    if (isOpen) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-    } else {
-        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-    }
-});
-
-/* ---- CERTIFICATE HELPERS ---- */
-/**
- * Update a certificate link in the certifications list.
- * certIndex: 0-based index of the certificate card in the DOM
- * url: the URL to set for the certificate (string)
- * Returns true if updated, false otherwise.
- */
-function updateCertificateLink(certIndex, url) {
-    const links = document.querySelectorAll('.cert-link');
-    const link = links[certIndex];
-    if (!link) return false;
-    link.href = url;
-    link.dataset.placeholder = 'false';
-    link.textContent = 'View certificate';
-    link.setAttribute('target', '_blank');
-    link.setAttribute('rel', 'noreferrer noopener');
-    return true;
-}
-
-window.updateCertificateLink = updateCertificateLink;

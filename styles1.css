@@ -317,11 +317,6 @@ ul { list-style: none; }
 }
 .info-item i { color: var(--accent-1); width: 16px; }
 
-/* About -> Education brief */
-
-/* TEMP TEST: highlight the education block to debug visibility */
-.edu-list li { margin-bottom: 6px; font-size: .95rem; }
-
 /* ---------- TIMELINE ---------- */
 .timeline { position: relative; padding-left: 36px; }
 .timeline::before {
@@ -478,20 +473,6 @@ ul { list-style: none; }
 }
 .project-actions-single { padding-top: 0; }
 .project-view-btn { width: 100%; justify-content: center; }
-.project-details { width: 100%; }
-.project-details summary {
-    list-style: none;
-    width: 100%;
-    justify-content: center;
-}
-.project-details summary::-webkit-details-marker { display: none; }
-.project-details-text {
-    margin-top: 10px;
-    color: var(--text-secondary);
-    font-size: .9rem;
-    line-height: 1.65;
-}
-.project-repo-btn { justify-content: center; }
 
 .project-modal {
     position: fixed;
@@ -567,35 +548,6 @@ ul { list-style: none; }
 }
 .project-modal-link { flex: 1 1 180px; justify-content: center; }
 .modal-open { overflow: hidden; }
-
-/* ---------- CERTIFICATIONS ---------- */
-.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-.cert-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    transition: var(--transition);
-}
-.cert-card:hover { border-color: rgba(124,58,237,.3); transform: translateY(-3px); }
-.cert-icon { font-size: 2rem; color: var(--accent-1); min-width: 44px; text-align: center; }
-.cert-body { flex: 1; }
-.cert-body h3 { font-size: .97rem; font-weight: 700; margin-bottom: 4px; }
-.cert-org { color: var(--text-muted); font-size: .82rem; }
-.cert-date { color: var(--accent-2); font-size: .8rem; font-weight: 600; margin-top: 4px; }
-.cert-badge {
-    white-space: nowrap;
-    font-size: .8rem;
-    font-weight: 600;
-    color: var(--accent-1);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-.cert-badge:hover { color: var(--accent-2); }
 
 /* ---------- ACHIEVEMENTS ---------- */
 .achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
@@ -718,27 +670,6 @@ footer {
     transition: var(--transition);
 }
 .footer-socials a:hover { border-color: var(--accent-1); color: var(--accent-1); }
-
-/* ---------- BACK TO TOP ---------- */
-.back-to-top {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--gradient);
-    color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-size: .9rem;
-    box-shadow: 0 4px 20px rgba(124,58,237,.4);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(12px);
-    transition: var(--transition);
-    z-index: 999;
-}
-.back-to-top.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
-.back-to-top:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(124,58,237,.5); }
 
 /* ---------- REVEAL ANIMATION ---------- */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
