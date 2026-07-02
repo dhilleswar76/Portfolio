@@ -54,6 +54,8 @@ const typedEl = document.getElementById('typed');
 let roleIndex = 0, charIndex = 0, isDeleting = false;
 
 function type() {
+    if (!typedEl) return;
+
     const current = roles[roleIndex];
     if (!isDeleting) {
         typedEl.textContent = current.slice(0, charIndex + 1);
@@ -73,7 +75,9 @@ function type() {
     }
     setTimeout(type, isDeleting ? 60 : 110);
 }
-type();
+if (typedEl) {
+    type();
+}
 
 /* ---- REVEAL ON SCROLL ---- */
 function revealOnScroll() {
@@ -114,24 +118,14 @@ animateBarsOnce(); // check on load
 
 /* ---- CONTACT FORM ---- */
 const form       = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
 
 if (form) {
     form.addEventListener('submit', e => {
-        e.preventDefault();
         const btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-        // Simulate sending (replace with real API call e.g. EmailJS / FormSubmit)
-        setTimeout(() => {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-            formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-            formStatus.className = 'form-status success';
-            form.reset();
-            setTimeout(() => { formStatus.textContent = ''; formStatus.className = 'form-status'; }, 5000);
-        }, 1800);
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        }
     });
 }
 
