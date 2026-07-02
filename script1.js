@@ -148,22 +148,22 @@ const projectData = {
         title: 'SkillSync',
         description: 'Full-stack learning platform for structured course management and coding practice.',
         explanation: 'SkillSync is a full-stack learning platform that combines course management, interactive coding practice, quizzes, progress tracking, and certificate generation in one web application. It offers structured learning across multiple tech domains, a responsive React frontend, a Node.js and MongoDB backend, secure authentication, role-based access control, and downloadable PDF certificates for completed courses.',
-        demoUrl: '#',
-        repoUrl: '#'
+        demoUrl: 'https://skill-sync-learning-portal.vercel.app/',
+        repoUrl: 'https://github.com/dhilleswar76/SkillSync.git'
     },
-    'task-manager': {
-        title: 'Task Manager',
-        description: 'Productivity app for organizing daily work, priorities, and progress.',
-        explanation: 'A productivity app focused on organizing daily work, priorities, and progress with an intuitive workflow.',
-        demoUrl: '#',
-        repoUrl: '#'
+    'tasty-bite': {
+        title: 'Tasty Bite',
+        description: 'Restaurant management app for handling orders, tables, and daily operations.',
+        explanation: 'Tasty Bite is a restaurant management app designed to streamline order handling, table management, menu updates, and daily restaurant operations in one place.',
+        demoUrl: 'https://tastybite-restaurant.vercel.app/',
+        repoUrl: 'https://github.com/dhilleswar76/TastyBite.git'
     },
-    'ecommerce-ui': {
-        title: 'E-Commerce UI',
-        description: 'Responsive storefront layout with product cards and conversion-focused sections.',
-        explanation: 'A responsive storefront layout with product cards, clean navigation, and conversion-focused content blocks.',
-        demoUrl: '#',
-        repoUrl: '#'
+    'swipe-learn': {
+        title: 'Swipe Learn',
+        description: 'Fun-based learning app for students with interactive lessons and quizzes.',
+        explanation: 'Swipe Learn is a fun-based learning app for students that makes study time more engaging with interactive lessons, simple navigation, and quiz-driven learning experiences.',
+        demoUrl: 'https://swipe-learn-fsd.vercel.app/',
+        repoUrl: 'https://github.com/dhilleswar76/SwipeLearn-FSD.git'
     }
 };
 
